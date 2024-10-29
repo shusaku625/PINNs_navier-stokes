@@ -1,0 +1,46 @@
+weight:
+  Lambda_BC: 20
+  Lambda_data: 1
+  Lambda_div: 100
+
+resource:
+  device: cuda
+
+input_mesh:
+  path: bend_mesh/
+  domain_mesh: bend_pipe.vtk
+  inlet_mesh: inlet.stl
+  wall_mesh: wall.stl
+  outlet_mesh: outlet.stl
+
+parameter:
+  batch_size: 2048
+  learning_rate: 1e-5
+  epochs: 5000
+
+Flag:
+  pretrain: False
+  schedule: True
+  
+physical_parameter:
+  diffusion_coefficient: 1e-3
+  rho: 1e3
+  time_duration: 0.5
+  time_point: 20
+
+scaling:
+  x_center: -13.148
+  y_center: 0.0
+  z_center: -3.7486
+  x_scale: 4.0
+  y_scale: 1.0
+  z_scale: 5.0
+  U_scale: 1.0
+
+schedule:
+  start_learning_rate: 5e-4
+  step_epoch: 1200
+  decay_rate: 0.1
+
+output:
+  path: Results/

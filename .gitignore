@@ -1,0 +1,8 @@
+test
+loss_out.csv
+*.log
+*.pt
+*.vtu
+*.yaml
+*.pyc
+*.inp
